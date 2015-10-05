@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Extensible Attribute</title>
+    <script>
+
+        // Extensible Attribute
+        var x = {
+            name: 'James'
+        };
+
+        x.type = 'UI Developer'; // Ability to dynamically add properties is known as extensibility
+
+        console.log(x.type);
+
+        print('Object.isExtensible(x);');
+
+        Object.preventExtensions(x);
+
+        print('Object.isExtensible(x);');
+
+        x.data = 'some information about james';
+
+        console.log(x.data);
+
+        function print(str) {
+            console.log(str, ' | evaluates to | ', eval(str));
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

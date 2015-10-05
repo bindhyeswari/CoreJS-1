@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>toJSON</title>
+    <script>
+
+        console.log(Object.getOwnPropertyNames(Object.prototype));
+
+        var x = {
+            name: 'James'
+        };
+
+        var stringified = JSON.stringify(x);
+        console.log(stringified, typeof stringified); // used to serialize or convert to a string an entire object
+        var obj = JSON.parse(stringified);
+        console.log(obj, typeof obj);
+
+        console.log('x === obj', x === obj);
+
+        console.log(JSON.stringify(obj));
+        obj.toJSON = function () {
+            return 'This object cannot be stringified. It has properties that we do not want to expose.';
+        };
+
+        console.log(JSON.stringify(obj));
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

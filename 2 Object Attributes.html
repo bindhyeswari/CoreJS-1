@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object Attributes</title>
+    <script>
+
+        function Car() {
+            this.wheels = 4;
+        }
+
+        var audi = new Car();
+
+        // prototype attribute
+
+        // get the prototype attribute of an object
+        // Object.getPrototypeOf
+        print('Object.getPrototypeOf(audi) === Car.prototype;');
+
+
+        function test() {
+
+        }
+
+        print('Object.getPrototypeOf(test) === Function.prototype');
+
+        // All functions will have their parent / prototype attribute = Function.prototype
+        print('Object.getPrototypeOf(Car) === Function.prototype');
+        print('Object.getPrototypeOf(Function.prototype) === Object.prototype');
+
+        var sum = new Function('x', 'y', 'return x + y;');
+        print('sum(2,12);');
+
+        var obj = new Object();
+        print('Object.getPrototypeOf(obj) === Object.prototype');
+
+
+
+        function print(str) {
+            console.log(str, ' | evaluates to | ', eval(str));
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

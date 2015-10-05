@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ways of creating an object</title>
+    <script>
+
+        // ECMAScript 5
+
+        // Creating via object literal
+        var james = {
+            name: 'James'
+        };
+
+        // Constructor
+        function Car() {
+            this.wheels = 4;
+        }
+        Car.prototype.roll = function () {
+            console.log('rolling at 5mph');
+        };
+
+        var car = new Car();
+        car.roll();
+
+
+        // todo: read on errors in javascript
+        // Object.create
+
+        var x = {
+            type: 'Web Developer'
+        };
+
+        var y = Object.create(x);
+
+        console.log(Object.getPrototypeOf(y) === x);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

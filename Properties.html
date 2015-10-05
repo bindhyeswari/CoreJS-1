@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Property Attributes</title>
+    <script>
+
+        var james = {
+            name: 'James',
+            type: 'UI Developer',
+            id: 65
+        };
+
+
+        // enumeration loop
+        for (var prop in james) {
+            console.log(prop, james[prop]);
+        }
+
+        // change the property attributes
+        Object.defineProperty(james, 'name', {
+            writable: false,
+            enumerable: false,
+            configurable: false
+        });
+
+        // todo: try to define a getter function within Object.defineProperty
+
+        // access property attributes
+        print('Object.getOwnPropertyDescriptor(james, \'name\');');
+
+        james.name = 'John';
+        console.log(james.name);
+
+        // enumeration loop
+        for (var prop in james) {
+            console.log(prop, james[prop]);
+        }
+
+        print('Object.keys(james)');
+        print('Object.getOwnPropertyNames(james)');
+
+
+
+        // change the property attributes
+        Object.defineProperty(james, 'name', { // throws a typeError if configurable is false
+            writable: true,
+            enumerable: true
+        });
+        print('Object.getOwnPropertyDescriptor(james, \'name\');');
+
+
+
+
+
+
+
+        function print(str) {
+            console.log(str, ' | evaluates to | ', eval(str));
+        }
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

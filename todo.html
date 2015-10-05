@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        // read through chapter 6 of Javascript The Definitive Guide
+
+        // page 115
+        var x = {
+            name: 'James'
+        };
+        var y = x;
+        y.name = 'John'; // objects are mutable
+
+        console.log(x);
+
+        var p = 'James';
+        var q = p;
+        q = 'John';
+        console.log(p); // Remains James because strings are immutable
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object Properties</title>
+
+    <script>
+
+        print('Object.getOwnPropertyNames(Function.prototype);');
+        print('Object.getOwnPropertyNames(Object.prototype);');
+
+        function print(str) {
+            console.log(str, ' | evaluates to | ', eval(str));
+        }
+
+        function test() {}
+
+        print('test.toString();'); // test does not have .toString() as an own property. It is using Function.prototype.toString
+        print('Function.prototype.toString.call(test)');
+        print('Object.prototype.toString.call(test)');
+
+        var james = {
+            name: 'James',
+            sayHello: function () {
+                console.log('Hello from ', this.name); // context of sayHello is the object james, this === james
+            }
+        };
+
+        var child = Object.create(james);
+
+        print('Object.getOwnPropertyNames(child)');
+        print('Object.getOwnPropertyNames(james)');
+        child.name = 'John';
+        console.log(child.name);
+        child.sayHello(); // this for sayHello === child
+        james.sayHello.call(child);
+
+
+        function classof(obj) {
+            // todo: return only the class name attribute, not the whole string
+            return Object.prototype.toString.call(obj); // class name attribute
+        }
+
+        function Car() {
+
+        }
+
+        var audi = new Car();
+
+        console.log(classof(new Date()));
+        console.log(classof(function () {}));
+        console.log(classof(audi));
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
